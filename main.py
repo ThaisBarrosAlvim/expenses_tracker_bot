@@ -19,7 +19,7 @@ daily_expense = {}
 
 # Change the file name based on the user
 def get_file_name(user_id):
-    return str(user_id) + '_json_data.json'
+    return os.path.join('data', str(user_id) + '_json_data.json')
 
 
 def load_data(user_id):
@@ -212,7 +212,6 @@ def handle_message(message):
                 + (
                     f' (R$ {value_left:.2f} remaning)' if value_left >= 0 else f' <ins>({-1 * value_left:.2f} over)</ins>'))
         bot.send_message(chat_id=message.chat.id, text=text, parse_mode="HTML")
-
 
 
 bot.polling()
