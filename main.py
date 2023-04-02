@@ -41,6 +41,8 @@ def load_data(user_id):
 # Change the file name based on the user
 def save_data(user_id):
     filename = get_file_name(user_id)
+    if not os.path.exists(os.path.dirname(filename)):
+        os.makedirs(os.path.dirname(filename))
     with open(filename, 'w') as json_file:
         json.dump(daily_expense, json_file)
 
