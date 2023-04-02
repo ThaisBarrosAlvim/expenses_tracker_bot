@@ -111,7 +111,7 @@ def handle_set_day_expense_step3(message, dt: datetime.datetime):
         bot.send_message(chat_id=message.chat.id,
                          text='Please, send a valid number:',
                          reply_markup=telebot.types.ForceReply(selective=False))
-        bot.register_next_step_handler(message, handle_set_day_expense_step3)
+        bot.register_next_step_handler(message, handle_set_day_expense_step3, dt)
     else:
         update_day_expense(dt, value, save=True, user_id=message.chat.id)
         bot.send_message(chat_id=message.chat.id,
