@@ -125,7 +125,7 @@ def handle_set_day_expense_step2(message, markup):
         bot.send_message(chat_id=message.chat.id,
                          text='Please, send a valid date in format: dd/mm/yy (ex: "02/07/23"):',
                          reply_markup=markup)
-        bot.register_next_step_handler(message, handle_set_day_expense_step2)
+        bot.register_next_step_handler(message, handle_set_day_expense_step2, markup)
     else:
         bot.send_message(chat_id=message.chat.id, text='Please, send the value:',
                          reply_markup=telebot.types.ForceReply(selective=False))
